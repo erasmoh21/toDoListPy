@@ -7,7 +7,7 @@ client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 #client.bind(CLIENTADDR)
 client.connect(SERVERADDR)
 
-data: str =""
+data: bytes = b""
 while data!="N" or data!="n":
     data: bytes = input("Digit a message to send to the server: ").encode()
     print(f"[[Me]]: {data}")

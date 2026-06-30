@@ -1,4 +1,5 @@
-import socket,sys
+import socket,os
+file = os.fdopen(os.open("./templates/login/login.html",os.O_RDONLY),"+rb")
 
 SERVERSOCK=("localhost",80)
 server = socket.create_server(SERVERSOCK,family=socket.AF_INET)
@@ -9,7 +10,7 @@ data:str=conn.recv(1600).decode().lower()
 print(f"[[Client]]: {data}")
 while data != "n":
     msg:bytes = input("Something to send: ").encode()
-    conn.send(msg)
+    conn.sendfile(file)
     print(f"[[Me]]: {msg}")
     data:str=conn.recv(1600).decode().lower() 
     if data != "n":
