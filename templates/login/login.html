@@ -14,12 +14,26 @@
     </header>
 
     <main>
-        <form action="" method="post" id="signInForm">
-            <label for="inputUsername">Username:</label>
-            <input type="text" id="inputUsername" placeholder="Username or email">
-            <label for="inputPassword">Password:</label>
-            <input type="password" id="inputPassword" placeholder="Password">
-        </form>
-    </main>
+        <div>
+            <figure>
+                <img src="./assets/loginAvatar.svg" alt="Login avatar svg">
+            </figure>
+            <form action="" method="post" id="signInForm">
+                <fieldset>
+                    <legend>Log-in</legend>
+                    <div class="mainInputsLogin">
+                        <label for="inputUsername">Username:</label>
+                        <input type="text" id="inputUsername" placeholder="Username or email">
+                        <label for="inputPassword">Password:</label>
+                        <input type="password" id="inputPassword" placeholder="Password">
+                    </div> 
+                    <div>
+                        <button id="btnLogin">Log in</button>
+                        <button id="btnSignUp">Sign Up</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+   </main>
 </body>
 </html>

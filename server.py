@@ -31,5 +31,16 @@ while True:
             f"{cssLoginFile}" 
         ).encode()
         conn.send(msg)
+    if "GET /assets/loginAvatar.svg HTTP/1.1" in requestLine:
+        loginAvatar = open("./templates/login/assets/loginAvatar.svg","r").read()
+        lenLoginAvatar = len(loginAvatar)
+        msg = (
+            "HTTP/1.1 200 OK\r\n"
+            "Content-Type: image/svg+xml\r\n"
+            f"Content-Length: {lenLoginAvatar}\r\n"
+            "\r\n"
+            f"{loginAvatar}"
+        ).encode()
+        conn.send(msg)
 
     conn.close()
