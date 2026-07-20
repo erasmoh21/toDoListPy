@@ -1,4 +1,5 @@
 import socket,os
+from helpers.handlerRequest import handlerRequest
 #html = os.fdopen(os.open("./templates/login/login.html",os.O_RDONLY),"+rb")
 
 def splittingHeaderBody(req:str)->list[str]:
@@ -12,35 +13,57 @@ server.listen(1)
 while True:
     conn,addr= server.accept()
     data:str=conn.recv(1600).decode()   
-    header = splittingHeaderBody(data)[0]
-    requestLine = header.split("\r\n")[0]
+    header: str = splittingHeaderBody(data)[0]
+    requestLine:str = header.split("\r\n")[0]
     print(f"{requestLine}")
 
     if "GET / HTTP/1.1" in requestLine:
-        html = open("./templates/login/login.html","r+b")
-        conn.sendfile(html)
+        obj:dict = {
+            "requestLine": requestLine,
+            "pathFile":"./templates/login/login.html",
+            "type": "html"
+        }
+        msgResponse:bytes = handlerRequest (1,obj)
+        conn.send(msgResponse)
     if "GET /loginStyle.css HTTP/1.1" in requestLine:
-        cssLoginFile = open("./templates/login/loginStyle.css","r").read()
-        lenCssLoginFile =len(cssLoginFile)
-        msg = (
-            "HTTP/1.1 200 OK\r\n"
-            "Content-Type: text/css\r\n"
-            f"Content-Length: {lenCssLoginFile}\r\n"  
-            "Connection: close\r\n"
-            "\r\n" 
-            f"{cssLoginFile}" 
-        ).encode()
-        conn.send(msg)
+        obj: dict = {
+            "requestLine": requestLine,
+            "pathFile":"./templates/login/loginStyle.css",
+            "type":"css"
+        }
+        msgResponse:bytes = handlerRequest(1,obj)
+        conn.send(msgResponse)
     if "GET /assets/loginAvatar.svg HTTP/1.1" in requestLine:
-        loginAvatar = open("./templates/login/assets/loginAvatar.svg","r").read()
-        lenLoginAvatar = len(loginAvatar)
-        msg = (
-            "HTTP/1.1 200 OK\r\n"
-            "Content-Type: image/svg+xml\r\n"
-            f"Content-Length: {lenLoginAvatar}\r\n"
-            "\r\n"
-            f"{loginAvatar}"
-        ).encode()
-        conn.send(msg)
+        obj: dict = {
+            "requestLine": requestLine,
+            "pathFile": "./templates/login/assets/loginAvatar.svg",
+            "type": "svg"
+        }
+        msgResponse:bytes = handlerRequest(1,obj)
+        conn.send(msgResponse)
+    if "POST /dashboard HTTP/1.1" in requestLine:
+        obj:dict = {
+            "requesLine": requestLine,
+            "pathFile": "./templates/dashboard/index.html",
+            "type": "html"
+        }
+        msgResponse:bytes = handlerRequest(1,obj)
+        conn.send(msgResponse)
+    if "GET /indexStyle.css HTTP/1.1" in requestLine:
+        obj:dict ={
+            "requestLine": requestLine,
+            "pathFile": "./templates/dashboard/indexStyle.css",
+            "type": "css"
+        }
+        msgResponse:bytes = handlerRequest(1,obj)
+        conn.send(msgResponse)
+    if "GET /indexCode.js HTTP/1.1" in requestLine:
+        obj:dict = {
+            "requestLine": requestLine,
+            "pathFile": "./templates/dashboard/indexCode.js",
+            "type": "js"
+        }
+        msgResponse:bytes = handlerRequest(1,obj)
+        conn.send(msgResponse)
 
     conn.close()

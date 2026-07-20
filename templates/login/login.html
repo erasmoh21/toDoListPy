@@ -18,14 +18,14 @@
             <figure>
                 <img src="./assets/loginAvatar.svg" alt="Login avatar svg">
             </figure>
-            <form action="" method="post" id="signInForm">
+            <form action="/dashboard" method="post" id="signInForm">
                 <fieldset class="fieldsetSignInForm">
                     <legend>Log-in</legend>
                     <div class="containerInputSignInForm">
                         <label for="inputUsername">Username</label>
-                        <input type="text" id="inputUsername" placeholder="Username or email">
+                        <input type="text" id="inputUsername" placeholder="Username or email" required>
                         <label for="inputPassword">Password</label>
-                        <input type="password" id="inputPassword" placeholder="Password">
+                        <input type="password" id="inputPassword" placeholder="Password" required>
                     </div> 
                     <div class="containerBtnSignInForm">
                         <button id="btnLogin" class="btnStyleLogin">Log in</button>
