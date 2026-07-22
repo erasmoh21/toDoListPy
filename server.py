@@ -65,5 +65,13 @@ while True:
         }
         msgResponse:bytes = handlerRequest(1,obj)
         conn.send(msgResponse)
+    if "GET /assets/noTaskAvatar.svg HTTP/1.1" in requestLine:
+        obj:dict = {
+            "requestLine": requestLine,
+            "pathFile": "./templates/dashboard/assets/noTaskAvatar.svg",
+            "type": "svg"
+        }        
+        msgResponse:bytes = handlerRequest(1,obj)
+        conn.send(msgResponse)
 
     conn.close()

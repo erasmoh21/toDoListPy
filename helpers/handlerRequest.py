@@ -36,7 +36,7 @@ def handlerRequest(typeRequest:int,objRequest: dict)->bytes:
         if objRequest["type"] == "svg":
             msgRequest = (
                 "HTTP/1.1 200 OK\r\n"
-                "Content-Type: image/svg+xml"
+                "Content-Type: image/svg+xml\r\n"
                 f"Content-Length: {lenFile}\r\n"
                 "\r\n"
                 f"{file}"

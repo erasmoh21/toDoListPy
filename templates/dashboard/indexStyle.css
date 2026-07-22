@@ -11,6 +11,12 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: var(--backgroundLightStandard);
+}
+    
+/*HEADER*/
+
 .mainHeaderContainer {
     display: flex;
     align-items: center;
@@ -40,4 +46,78 @@
     background-color: var(--backgroundLightStandard);
     color: var(--colorLightStandard);
     cursor: pointer ;
+}
+
+/*MAIN*/
+
+#noTaskAvatar {
+    display: none;
+}
+
+.containerNoTaskAvatar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 63px);
+    gap: 25px;
+}
+
+#addTaskBtn {
+    background-color: var(--colorLightStandard);
+    color: var(--backgroundLightStandard);
+    font-weight: bolder;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#addTaskBtn:hover {
+    cursor: pointer;
+}
+
+.containerAddTaskForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    height: calc(100vh - 63px);
+    border-radius: 5px;
+}
+
+.containerAddTaskForm #addTaskForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--backgroundLightStandard);
+    color: var(--colorLightStandard);
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+
+.containerAddTaskForm #addTaskForm fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px
+}
+
+.containerAddTaskForm #addTaskForm input {
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid var(--colorLightStandard);
+    padding: 5px;
+}
+
+.containerAddTaskForm #addTaskForm fieldset .fieldsetmember {
+    display: flex;
+    flex-direction: column;
+}
+
+.containerAddTaskForm #addTaskForm .closeAddTaskForm {
+    align-self: end;
+}
+
+.containerAddTaskForm #addTaskForm .closeAddTaskForm:hover {
+    cursor: pointer;
 }
