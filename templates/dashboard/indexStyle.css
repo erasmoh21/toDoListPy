@@ -14,14 +14,14 @@
 body {
     background-color: var(--backgroundLightStandard);
 }
-    
+
 /*HEADER*/
 
 .mainHeaderContainer {
     display: flex;
     align-items: center;
     color: var(--backgroundLightStandard);
-    background-color: var(--colorLightStandard); 
+    background-color: var(--colorLightStandard);
     border-radius: 5px;
     padding: 10px 0;
     box-shadow: 10px 5px 15px var(--colorLightStandard);
@@ -76,10 +76,9 @@ body {
 }
 
 .containerAddTaskForm {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
-    z-index: 2;
     height: calc(100vh - 63px);
     border-radius: 5px;
 }
@@ -120,4 +119,29 @@ body {
 
 .containerAddTaskForm #addTaskForm .closeAddTaskForm:hover {
     cursor: pointer;
+}
+
+.containerAddTaskForm #addTaskForm fieldset #btnAddTask {
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid var(--colorLightStandard);
+    padding: 5px;
+    font-weight: bolder;
+    color: var(--colorLightStandard);
+}
+
+.containerAddTaskForm #addTaskForm fieldset #btnAddTask:hover {
+    cursor: pointer;
+}
+
+#mainContainerTasks {
+    display: flex;
+}
+.task {
+    border: 1px solid var(--colorLightStandard) ;
+    border-radius: 5px;
+} 
+
+.task .dateAndPriorityBlock {
+    display: flex;
 }

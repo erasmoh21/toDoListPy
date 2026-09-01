@@ -6,7 +6,6 @@
         <title>Dashboard | ToDo</title>
         <link rel="stylesheet" href="http://localhost:80/indexStyle.css">
         
-
     </head>
     <body>
         <header>
@@ -24,11 +23,56 @@
             </div>
        </header>
         <main>
+            <div id="mainContainerTasks"></div>
             <figure class="containerNoTaskAvatar">
                 <img src="./assets/noTaskAvatar.svg" alt="No Task Avatar" id="noTaskAvatar">
                 <figcaption id="addTaskBtn">Add a task</figcaption>
             </figure>
+            <div class="containerAddTaskForm">
+                <form method="dialog" id="addTaskForm">
+                    <p class="closeAddTaskForm">X</p>
+                    <fieldset>
+                        <div class="fieldsetmember">
+                            <label for="taskName">Task name:</label>
+                            <input type="text" id="taskName" placeholder="Enter the task name">
+                        </div>
+                        <div class="fieldsetmember">
+                            <label for="taskDescription">Description:</label>
+                            <input type="text" id="taskDescription" placeholder="Enter a Description">
+                        </div>
+                        <div class="fieldsetmember">
+                            <label for="scheduleTask">When you need this task completed ?</label>
+                            <input type="date" id="scheduleTask">
+                        </div>
 
+                        <div class="fieldsetmember">
+                            <label for="priorityLevel">Priority level:</label>
+                            <select name="priorityLevel" id="priorityLevel">
+                                <option value="3">High</option>
+                                <option value="2">Medium</option>
+                                <option value="1">Low</option>
+                            </select>
+                        </div>
+
+                        <div class="fieldsetmember">
+                            <label for="typeTask">Type of task:</label>
+                            <select name="typeTask id="typeTask">
+                                <option value="Work">Work</option>
+                                <option value="Personal">Personal</option>
+                                <option value="Educational">Educational</option>
+                                <option value="Social">Social</option>
+                                <option value="Relationship">Relationship</option>
+                                <option value="Project">Project</option>
+                                <option value="Family">Family</option>
+                                <option value="Hobbie">Hobbie</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <button id="btnAddTask">Add</button>
+                    </fieldset>
+                </form>
+            </div>
         </main>
     </body>
     <script src="./indexCode.js"></script>
