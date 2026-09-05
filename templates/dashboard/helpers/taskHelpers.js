@@ -1,7 +1,7 @@
 export function setTemplateTask(dataObject={}) {
     return `
         <div class=task id=${dataObject.id}>
-            <div>
+            <div class="mainContainerSectionTask">
                 <h3>${dataObject.title}</h3>
                 <hr>
                 <div class="dateAndPriorityBlock">
@@ -19,14 +19,7 @@ export function setTemplateTask(dataObject={}) {
                         Type: ${dataObject.type}
                     </p>
                 </div>
-            <div>
+            </div>
         </div>
     `
-}
-
-function constructDataObejct(...properties) {
-    document.getElementById("btnAddTask").addEventListener("click",()=>{
-        alert("Asshole")
-    })
-
 }

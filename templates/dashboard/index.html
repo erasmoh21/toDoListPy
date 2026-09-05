@@ -20,6 +20,9 @@
                         <li type="none" id="plugIns">Plug-Ins</li>
                     </ul>
                 </nav>
+                <div>
+                    <p id="addTaskHeaderBtn">Add a task</p>
+                </div>
             </div>
        </header>
         <main>
@@ -29,25 +32,25 @@
                 <figcaption id="addTaskBtn">Add a task</figcaption>
             </figure>
             <div class="containerAddTaskForm">
-                <form method="dialog" id="addTaskForm">
+                <form method="get" id="addTaskForm">
                     <p class="closeAddTaskForm">X</p>
                     <fieldset>
                         <div class="fieldsetmember">
                             <label for="taskName">Task name:</label>
-                            <input type="text" id="taskName" placeholder="Enter the task name">
+                            <input type="text" id="taskName" placeholder="Enter the task name" required>
                         </div>
                         <div class="fieldsetmember">
                             <label for="taskDescription">Description:</label>
-                            <input type="text" id="taskDescription" placeholder="Enter a Description">
+                            <input type="text" id="taskDescription" placeholder="Enter a Description" required>
                         </div>
                         <div class="fieldsetmember">
                             <label for="scheduleTask">When you need this task completed ?</label>
-                            <input type="date" id="scheduleTask">
+                            <input type="date" id="scheduleTask" required>
                         </div>
 
                         <div class="fieldsetmember">
                             <label for="priorityLevel">Priority level:</label>
-                            <select name="priorityLevel" id="priorityLevel">
+                            <select name="priorityLevel" id="priorityLevel" required>
                                 <option value="3">High</option>
                                 <option value="2">Medium</option>
                                 <option value="1">Low</option>
@@ -56,7 +59,7 @@
 
                         <div class="fieldsetmember">
                             <label for="typeTask">Type of task:</label>
-                            <select name="typeTask id="typeTask">
+                            <select name="typeTask" id="typeTask" required>
                                 <option value="Work">Work</option>
                                 <option value="Personal">Personal</option>
                                 <option value="Educational">Educational</option>
@@ -75,5 +78,5 @@
             </div>
         </main>
     </body>
-    <script src="./indexCode.js"></script>
+    <script src="./indexCode.js" type="module"></script>
 </html>

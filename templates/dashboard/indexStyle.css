@@ -25,6 +25,11 @@ body {
     border-radius: 5px;
     padding: 10px 0;
     box-shadow: 10px 5px 15px var(--colorLightStandard);
+    font-weight: bolder;
+}
+
+.mainHeaderContainer .mainTitleHeaderContainer {
+    margin-left: 15px;
 }
 
 .mainNavHeaderContainer {
@@ -34,24 +39,44 @@ body {
 
 .mainNavHeaderContainer .ulHeaderContainer {
     display: flex;
-    font-weight: bolder;
     gap: 30px;
 }
 .mainHeaderContainer .ulHeaderContainer li {
     padding: 5px;
     border-radius: 5px;
     transition: all .5s ease;
+    user-select: none;
 }
+
 .mainHeaderContainer .ulHeaderContainer li:hover  {
     background-color: var(--backgroundLightStandard);
     color: var(--colorLightStandard);
     cursor: pointer ;
 }
 
+.mainHeaderContainer #addTaskHeaderBtn {
+    margin-right: 15px;
+    transition: all .5s ease;
+    padding: 5px;
+    border-radius: 5px;
+    display: none;
+}
+
+.mainHeaderContainer #addTaskHeaderBtn:hover {
+    cursor: pointer;
+    background-color: var(--backgroundLightStandard);
+    color: var(--colorLightStandard);
+    user-select: none;
+}
+
 /*MAIN*/
 
-#noTaskAvatar {
-    display: none;
+#mainContainerTasks {
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 30px 15px 0 15px;
+    position: fixed;
+    z-index: 1;
 }
 
 .containerNoTaskAvatar {
@@ -59,7 +84,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 63px);
+    height: calc(100vh - 93px);
     gap: 25px;
 }
 
@@ -75,12 +100,16 @@ body {
     cursor: pointer;
 }
 
+/*MAIN FORM TO ADD TASKS*/
+
 .containerAddTaskForm {
     display: none;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 63px);
+    height: calc(100vh - 93px);
     border-radius: 5px;
+    position: relative;
+    z-index: 999;
 }
 
 .containerAddTaskForm #addTaskForm {
@@ -92,6 +121,8 @@ body {
     padding: 10px;
     border-radius: 5px;
     font-weight: bolder;
+    z-index: 999;
+    position:relative;
 }
 
 .containerAddTaskForm #addTaskForm fieldset {
@@ -115,6 +146,7 @@ body {
 
 .containerAddTaskForm #addTaskForm .closeAddTaskForm {
     align-self: end;
+    user-select: none;
 }
 
 .containerAddTaskForm #addTaskForm .closeAddTaskForm:hover {
@@ -128,11 +160,14 @@ body {
     padding: 5px;
     font-weight: bolder;
     color: var(--colorLightStandard);
+    user-select: none;
 }
 
 .containerAddTaskForm #addTaskForm fieldset #btnAddTask:hover {
     cursor: pointer;
 }
+
+/*TASK COMPONENTS*/
 
 #mainContainerTasks {
     display: flex;
@@ -144,4 +179,5 @@ body {
 
 .task .dateAndPriorityBlock {
     display: flex;
+    justify-content: space-around;
 }

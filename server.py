@@ -65,6 +65,14 @@ while True:
         }
         msgResponse:bytes = handlerRequest(1,obj)
         conn.send(msgResponse)
+    if "GET /helpers/taskHelpers HTTP/1.1" in requestLine:
+        obj:dict = {
+            "requestLine": requestLine,
+            "pathFile": "./templates/dashboard/helpers/taskHelpers.js",
+            "type": "js"
+        }
+        msgResponse:bytes = handlerRequest(1,obj)
+        conn.send(msgResponse)
     if "GET /assets/noTaskAvatar.svg HTTP/1.1" in requestLine:
         obj:dict = {
             "requestLine": requestLine,
