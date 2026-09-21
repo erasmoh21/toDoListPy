@@ -1,4 +1,4 @@
-import { setTemplateTask } from "./helpers/taskHelpers"
+import { setTemplateTask, setCorrectBackgroundColorTypeTask, setCorrectBackgroundColorPriorityTask, setCorrectBackgroundColorDeadline, setColorDependingOnDate } from "./helpers/taskHelpers"
 
 window.addEventListener("DOMContentLoaded",()=>{
     if(!localStorage.getItem("taskNumber") || localStorage.getItem("taskNumber") === "0") {
@@ -57,6 +57,16 @@ document.getElementById("btnAddTask").addEventListener("click",(e) => {
     body.style.backgroundColor = "#F4F1DE"
     addTaskHeaderBtn.style.display = "flex"
     document.getElementById("mainContainerTasks").innerHTML += setTemplateTask(dataObject)
+
+    const typeTask = document.getElementsByClassName("containerTypeTask")[document.getElementsByClassName("containerTypeTask").length-1]
+    const priority = document.getElementsByClassName("priority")[document.getElementsByClassName("priority").length-1]
+    const deadline = document.getElementsByClassName("deadline")[document.getElementsByClassName("deadline").length-1]
+    const future = parseInt(deadline.innerText.split(":")[1].trim().split("-")[2])
+    const colorObject = setColorDependingOnDate(future)
+    typeTask.style.backgroundColor = setCorrectBackgroundColorTypeTask(typeTask.childNodes.item(1).innerText.split(":")[1].trim()) 
+    priority.style.backgroundColor = setCorrectBackgroundColorPriorityTask(priority.innerText.split(":")[1].trim())
+    deadline.style.backgroundColor = colorObject.backgroundColor
+    deadline.style.color = colorObject.color
 })
 
 document.getElementById("addTaskHeaderBtn").addEventListener("click",(e) => {
@@ -69,12 +79,12 @@ document.getElementById("addTaskHeaderBtn").addEventListener("click",(e) => {
 
 const mainContainerTasks = document.getElementById("mainContainerTasks")
 const config = {childList: true}
-const callback = (mutationList,observer) => {
+const callback = (mutationList) => {
     for(const mutation of mutationList) {
         for(const addedNode of mutation.addedNodes) {
             if(addedNode.nodeName === "DIV") {
-                console.log("task")
                 localStorage.setItem("taskNumber",parseInt(localStorage.getItem("taskNumber"))+1)
+                break;
             }
         }
     }

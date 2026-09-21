@@ -175,9 +175,43 @@ body {
 .task {
     border: 1px solid var(--colorLightStandard) ;
     border-radius: 5px;
+    width: 300px;
+    height: 200px;
 } 
 
-.task .dateAndPriorityBlock {
+.task .containerTitleTask {
+    margin: 0 2px 0 2px;
+}
+
+.task .mainContainerDataSectionTask .containerDateAndPriorityBlock {
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+.task .containerDateAndPriorityBlock p:first-child {
+    background-color: #3D405B;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.task .mainContainerSectionsTask {
+    height: calc(100% - 29px);
+}
+
+.task .mainContainerSectionsTask .mainContainerDataSectionTask {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    margin: 2px 2px 0 2px;
+}
+
+.task .mainContainerSectionsTask .mainContainerDataSectionTask .containerTypeTask {
+    padding: 2px;
+    border-radius: 5px;
+    align-self: start;
+    margin-left: 2px;
+}
+.task .mainContainerSectionsTask .mainContainerDataSectionTask .priority {
+    border-radius: 5px;
 }
