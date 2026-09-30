@@ -2,7 +2,11 @@ export function setTemplateTask(dataObject={}) {
     return `
         <div class=task id=${dataObject.id}>
             <div class="mainContainerSectionsTask">
-                <div class="containerTitleTask"><h3>${dataObject.title}</h3></div>
+                <div class="containerTitleTask">
+                    <h3>${dataObject.title}</h3>
+                    <p>-</p>
+                    <img src="./assets/settingIcon.png"></img>
+                </div>
                 <hr>
                 <div class="mainContainerDataSectionTask">
                     <div class="containerDateAndPriorityBlock">

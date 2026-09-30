@@ -1,5 +1,6 @@
 import socket,os
 from helpers.handlerRequest import handlerRequest
+from DB.DBHandler import getTask,deleteTask,updateTask,insertTask
 #html = os.fdopen(os.open("./templates/login/login.html",os.O_RDONLY),"+rb")
 
 def splittingHeaderBody(req:str)->list[str]:
@@ -79,6 +80,14 @@ while True:
             "pathFile": "./templates/dashboard/assets/noTaskAvatar.svg",
             "type": "svg"
         }        
+        msgResponse:bytes = handlerRequest(1,obj)
+        conn.send(msgResponse)
+    if "GET /assets/settingIcon.png HTTP/1.1" in requestLine:
+        obj:dict = {
+            "requestLine": requestLine,
+            "pathFile": "./templates/dashboard/assets/settingIcon.png",
+            "type": "png"
+        }
         msgResponse:bytes = handlerRequest(1,obj)
         conn.send(msgResponse)
 

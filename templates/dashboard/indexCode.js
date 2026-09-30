@@ -24,7 +24,6 @@ document.getElementsByClassName("closeAddTaskForm")[0].addEventListener("click",
         containerNoTaskAvatar.style.display = "flex"
         containerAddTaskForm.style.display = "none"
         body.style.backgroundColor = "#F4F1DE"
-        console.log("he")
     }
     else {
         containerAddTaskForm.style.display = "none"
@@ -82,10 +81,8 @@ const config = {childList: true}
 const callback = (mutationList) => {
     for(const mutation of mutationList) {
         for(const addedNode of mutation.addedNodes) {
-            if(addedNode.nodeName === "DIV") {
-                localStorage.setItem("taskNumber",parseInt(localStorage.getItem("taskNumber"))+1)
-                break;
-            }
+            localStorage.setItem("taskNumber",parseInt(localStorage.getItem("taskNumber"))+1)
+            break;
         }
     }
 }
