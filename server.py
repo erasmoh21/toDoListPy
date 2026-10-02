@@ -85,8 +85,8 @@ while True:
     if "GET /assets/settingIcon.png HTTP/1.1" in requestLine:
         obj:dict = {
             "requestLine": requestLine,
-            "pathFile": "./templates/dashboard/assets/settingIcon.png",
-            "type": "png"
+            "pathFile": "./templates/dashboard/assets/updateIcon.svg",
+            "type": "svg"
         }
         msgResponse:bytes = handlerRequest(1,obj)
         conn.send(msgResponse)

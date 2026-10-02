@@ -180,7 +180,23 @@ body {
 } 
 
 .task .containerTitleTask {
-    margin: 0 2px 0 2px;
+    margin:0 2px 0 2px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.task .containerTitleTask .containerSettingsTask {
+    display: flex;
+    gap: 5px;
+}
+
+.task .containerTitleTask .containerSettingsTask p {
+    font-weight: bolder;
+}
+
+.task .containerTitleTask .containerSettingsTask p, 
+.task .containerTitleTask .containerSettingsTask img {
+    cursor: pointer;
 }
 
 .task .mainContainerDataSectionTask .containerDateAndPriorityBlock {
@@ -210,7 +226,7 @@ body {
     padding: 2px;
     border-radius: 5px;
     align-self: start;
-    margin-left: 2px;
+    margin: 0 0 2px 2px;
 }
 .task .mainContainerSectionsTask .mainContainerDataSectionTask .priority {
     border-radius: 5px;

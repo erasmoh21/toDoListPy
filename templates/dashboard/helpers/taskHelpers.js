@@ -4,8 +4,10 @@ export function setTemplateTask(dataObject={}) {
             <div class="mainContainerSectionsTask">
                 <div class="containerTitleTask">
                     <h3>${dataObject.title}</h3>
-                    <p>-</p>
-                    <img src="./assets/settingIcon.png"></img>
+                    <div class="containerSettingsTask">
+                        <p class="deleteTaskBtn">-</p>
+                        <img src="./assets/settingIcon.png" class="addTaskBtn" title="Update task" alt="Update task icon"></img>
+                    </div>
                 </div>
                 <hr>
                 <div class="mainContainerDataSectionTask">

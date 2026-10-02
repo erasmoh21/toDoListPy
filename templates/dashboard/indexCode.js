@@ -3,7 +3,7 @@ import { setTemplateTask, setCorrectBackgroundColorTypeTask, setCorrectBackgroun
 window.addEventListener("DOMContentLoaded",()=>{
     if(!localStorage.getItem("taskNumber") || localStorage.getItem("taskNumber") === "0") {
         document.getElementById("noTaskAvatar").style.display = "block"
-        localStorage.setItem("taskNumber",0)
+        localStorage.setItem("taskNumber","0")
     }
 })
 
@@ -76,12 +76,14 @@ document.getElementById("addTaskHeaderBtn").addEventListener("click",(e) => {
     
 })
 
+/* Mutation Observer for changes when a task is added */
 const mainContainerTasks = document.getElementById("mainContainerTasks")
 const config = {childList: true}
 const callback = (mutationList) => {
     for(const mutation of mutationList) {
         for(const addedNode of mutation.addedNodes) {
             localStorage.setItem("taskNumber",parseInt(localStorage.getItem("taskNumber"))+1)
+            console.log(addedNode)
             break;
         }
     }
@@ -89,3 +91,18 @@ const callback = (mutationList) => {
 
 const observer = new MutationObserver(callback)
 observer.observe(mainContainerTasks,config)
+
+/* Mutation Observer for changes when a task is deleted */
+/*const callbackTaskDeleted = (mutationList) => {
+    for(const mutation of mutationList) {
+        for(const deletedNode of mutation.removedNodes) {
+            localStorage.setItem("taskNumber",parseInt(localStorage.getItem("taskNumber"))-1)
+        }
+    }
+}*/
+
+/* Mutation Observer for changes when a task is updated */
+
+/*const callbackTaskUpdated = (mutationList) => {
+
+}*/
